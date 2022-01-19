@@ -53,6 +53,63 @@ button3.onclick = () => {
 	}
 }
 
+// Lesson 4
+// Работаем с формами
+
+
+
+document.querySelector('#button-4').onclick = buttonFunc;
+
+//Можно использовать функцию более одного раза.
+function buttonFunc() {
+	console.log(document.querySelector('.input-in-4').value);
+	document.querySelector('#button-4').style.backgroundColor = document.querySelector('.input-in-4').value;
+}
+
+document.querySelector('#button-date').onclick = buttonDate;
+
+function buttonDate() {
+	console.log(document.querySelector('.input-in-date').value);
+}
+
+document.querySelector('.input-in-range').oninput = buttonRange;
+
+function buttonRange() {
+	document.querySelector('.range_result').innerHTML = document.querySelector('.input-in-range').value;
+}
+
+
+// document.querySelector('#label-checkbox').onclick = function() {
+// 	console.log(!document.querySelector('#checkbox-1').checked);
+// };
+document.querySelector('#checkbox-button').onclick = buttonCheckbox;
+
+function buttonCheckbox() {
+	let myCheckBox = document.querySelector('#checkbox-1');
+	//console.log(myCheckBox.checked);
+	if(myCheckBox.checked) {
+		console.log('On');
+	} else {
+		console.log('off');
+	}
+}
+
+document.querySelector('#textarea-button').onclick = () => {
+	let textArea = document.querySelector('#textarea');
+	console.log(textArea.value);
+	textArea.value = "Отправлено";
+}
+
+document.querySelector('#form1-button').onclick = function(event) {
+	event.preventDefault();
+	//console.log(event);
+	//console.log('Форма');
+	let form1Data = document.querySelector('#form1');
+	console.log(form1Data);
+	//console.log(form1Data[1]);
+	console.log(form1Data.elements.form1_input.value);
+}
+
 
 
 
