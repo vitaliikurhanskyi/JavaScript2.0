@@ -4,7 +4,7 @@ document.getElementById('out').innerHTML = 'Hello!!!';
 document.querySelector('h2.header').innerHTML = 5;
 // получить весь document
 let doc = document;
-console.log(doc.querySelector('h2.header').innerHTML);
+//console.log(doc.querySelector('h2.header').innerHTML);
 
 
 // Lesson 2
@@ -109,6 +109,58 @@ document.querySelector('#form1-button').onclick = function(event) {
 	//console.log(form1Data[1]);
 	console.log(form1Data.elements.form1_input.value);
 }
+
+// Lesson 5
+// Циклы в JavaScript
+// for
+// while
+
+
+let text = document.querySelectorAll('.text-for');
+//console.log(text[1].style.color);
+
+for (let i = 0; i < text.length; i++) {
+	text[i].style.color = 'green';
+	text[i].onclick = getColor;
+}
+
+//console.log(text[1].style.color);
+
+function getColor() {
+	console.log('wer!!!');
+}
+
+let getByClass = document.getElementsByClassName('text-for');
+//console.log(getByClass);
+
+//RadioButtons
+
+let radioButton = document.querySelector('.radioButton').onclick = function() {
+	let radioChecked = document.getElementsByClassName('radio');
+
+	for (let i = 0; i < radioChecked.length; i++) {
+		if(radioChecked[i].checked) {
+			console.log(radioChecked[i].value);
+		}
+	}
+}
+
+// +=
+
+// for (let i = 0; i < 10; i++) {
+// 	document.getElementById('outPlusEqual').innerHTML += i + ' ';
+// }
+
+// лутше так, что бы не дергало страницу
+
+let outPlus = '';
+for (var i = 0; i < 10; i++) {
+	if (i == 6 || i == 3) continue;
+	outPlus += i + ' ';
+}
+
+document.getElementById('outPlusEqual').innerHTML = outPlus;
+
 
 
 
