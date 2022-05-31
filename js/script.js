@@ -14,7 +14,7 @@ let inputIn = document.querySelector('.input-in');
 let button = document.querySelector('#button');
 let result = document.querySelector('.result');
 
-button.onclick = function() {
+button.onclick = function () {
 	//console.log(inputIn.value); // То что находиться в input.value
 	let inputValue = +inputIn.value; // + перевод в число
 	console.log(inputValue + 10);
@@ -26,7 +26,7 @@ button.onclick = function() {
 // if else ветвление
 
 const button3 = document.querySelector('#button-3');
-const input3  = document.querySelector('.input-in-3');
+const input3 = document.querySelector('.input-in-3');
 
 
 // стрелочная анонимная функция/замыкание
@@ -87,7 +87,7 @@ document.querySelector('#checkbox-button').onclick = buttonCheckbox;
 function buttonCheckbox() {
 	let myCheckBox = document.querySelector('#checkbox-1');
 	//console.log(myCheckBox.checked);
-	if(myCheckBox.checked) {
+	if (myCheckBox.checked) {
 		console.log('On');
 	} else {
 		console.log('off');
@@ -100,14 +100,14 @@ document.querySelector('#textarea-button').onclick = () => {
 	textArea.value = "Отправлено";
 }
 
-document.querySelector('#form1-button').onclick = function(event) {
+document.querySelector('#form1-button').onclick = function (event) {
 	event.preventDefault();
 	//console.log(event);
 	//console.log('Форма');
 	let form1Data = document.querySelector('#form1');
-	console.log(form1Data);
+	//console.log(form1Data);
 	//console.log(form1Data[1]);
-	console.log(form1Data.elements.form1_input.value);
+	console.log(form1Data.elements.form1_textarea.value);
 }
 
 // Lesson 5
@@ -120,14 +120,19 @@ let text = document.querySelectorAll('.text-for');
 //console.log(text[1].style.color);
 
 for (let i = 0; i < text.length; i++) {
-	text[i].style.color = 'green';
+	if (i % 2) {
+		text[i].style.color = 'green';
+	} else {
+		text[i].style.color = 'orange';
+	}
+
 	text[i].onclick = getColor;
 }
 
 //console.log(text[1].style.color);
 
 function getColor() {
-	console.log('wer!!!');
+	console.log(this.style.color);
 }
 
 let getByClass = document.getElementsByClassName('text-for');
@@ -135,11 +140,11 @@ let getByClass = document.getElementsByClassName('text-for');
 
 //RadioButtons
 
-let radioButton = document.querySelector('.radioButton').onclick = function() {
+let radioButton = document.querySelector('.radioButton').onclick = function () {
 	let radioChecked = document.getElementsByClassName('radio');
 
 	for (let i = 0; i < radioChecked.length; i++) {
-		if(radioChecked[i].checked) {
+		if (radioChecked[i].checked) {
 			console.log(radioChecked[i].value);
 		}
 	}
@@ -160,6 +165,125 @@ for (var i = 0; i < 10; i++) {
 }
 
 document.getElementById('outPlusEqual').innerHTML = outPlus;
+
+// Lesson 5
+// Вложенные циклы
+
+let out = document.querySelector('.out');
+
+// for (let i = 0; i < 5; i++) {
+// 	for (let k = 0; k < 10; k++) {
+// 		out.innerHTML += '*';
+// 	}
+// 	out.innerHTML += '<br>';
+// }
+
+// for (let i = 1; i < 10; i++) {
+// 	for (let k = 1; k < 10; k++) {
+// 		out.innerHTML += `${i} * ${k} = ${i * k} <br>`;
+// 	}
+// 	out.innerHTML += '<hr>';
+// }
+
+// Lesson 7
+// Функции.
+
+let btnCallFunc = document.querySelector('#callfunc');
+
+function one() {
+	console.log('work');
+}
+
+btnCallFunc.onclick = one;
+
+let a = function (x) {
+	console.log(x);
+}
+//a('2');
+
+// Lesson 8
+// While, Do While
+
+let whileout = document.querySelector('.whileout');
+let sum = 0;
+
+
+while (sum < 3) {
+	//whileout.innerHTML += "****<br>";
+	let stroke = 0;
+	while (stroke < 4) {
+		whileout.innerHTML += '*';
+		stroke++;
+	}
+	whileout.innerHTML += '<br>';
+	sum++;
+}
+
+let flagout = document.querySelector('.flagout');
+let while1Counter = 0;
+let outStr = '';
+let flag = 3;
+
+while (while1Counter < 4) {
+	let while2Counter = 0;
+	while (while2Counter < 4) {
+		if (while2Counter < flag) {
+			outStr += '&nbsp';
+			//outStr += '0';
+		} else {
+			outStr += '*';
+		}
+		while2Counter++;
+	}
+	flag--;
+	outStr += '<br>';
+	while1Counter++;
+}
+
+flagout.innerHTML = outStr;
+
+//task
+
+document.querySelector('#btntask').onclick = function () {
+	let num = 0;
+	let outStr = '';
+	while (num < 50) {
+		num++;
+		if (num === 0) continue;
+		if (num < 50) {
+			outStr += `${num}_`;
+		} else {
+			outStr += `${num}`;
+		}
+	}
+	document.querySelector('.taskout').innerHTML = outStr;
+}
+
+document.querySelector('#btntask2').onclick = function () {
+	let num = 0;
+	let outStr = '';
+	while (num < 46) {
+		num += 2;
+		if (num < 2) continue;
+		outStr += `${num}_`;
+	}
+	document.querySelector('.taskout').innerHTML = outStr;
+}
+
+document.querySelector('#btntask3').onclick = function () {
+	let num = 25;
+	let outStr = '';
+	while (num !== 0) {
+		num--;
+		if (num < 7) continue;
+		outStr += `${num}_`;
+	}
+	document.querySelector('.taskout').innerHTML = outStr;
+}
+
+
+
+
 
 
 
