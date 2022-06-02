@@ -1,0 +1,35 @@
+.gas-title {
+	margin-top: 20px;
+	color: goldenrod;
+	font-size: 20px;
+}
+
+.gallons {
+	margin-top: 10px;
+}
+
+.gas-choise {
+	margin-top: 10px;
+}
+
+.gas {
+	cursor: pointer;
+}
+
+.price-out {
+	margin-top: 10px;
+	color: royalblue;
+}
+
+.btn-gas-select {
+	border: 1px solid red;
+	transition: 0.5s;
+}
+
+.red {
+	color: red;
+}
+
+.paste-new-element {
+	margin-top: 20px;
+}

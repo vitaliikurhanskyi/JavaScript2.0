@@ -208,16 +208,16 @@ let whileout = document.querySelector('.whileout');
 let sum = 0;
 
 
-while (sum < 3) {
-	//whileout.innerHTML += "****<br>";
-	let stroke = 0;
-	while (stroke < 4) {
-		whileout.innerHTML += '*';
-		stroke++;
-	}
-	whileout.innerHTML += '<br>';
-	sum++;
-}
+// while (sum < 3) {
+// 	//whileout.innerHTML += "****<br>";
+// 	let stroke = 0;
+// 	while (stroke < 4) {
+// 		whileout.innerHTML += '*';
+// 		stroke++;
+// 	}
+// 	whileout.innerHTML += '<br>';
+// 	sum++;
+// }
 
 let flagout = document.querySelector('.flagout');
 let while1Counter = 0;
@@ -230,6 +230,7 @@ while (while1Counter < 4) {
 		if (while2Counter < flag) {
 			outStr += '&nbsp';
 			//outStr += '0';
+			//console.log(flag);
 		} else {
 			outStr += '*';
 		}
@@ -280,6 +281,72 @@ document.querySelector('#btntask3').onclick = function () {
 	}
 	document.querySelector('.taskout').innerHTML = outStr;
 }
+
+// Lesson 9
+// Работа с DOM, создание элементов, работа с CSS.
+
+const p = document.querySelector('.one');
+
+p.style.color = "green";
+
+p.classList.add('test');
+
+const btnToggle = document.querySelector('#btn-toggle');
+
+btnToggle.onclick = function () {
+	this.classList.toggle('classtoggle');
+}
+
+// атрибуты data
+
+const atrribute = document.querySelector('.attribute');
+
+document.querySelector('.outattr').innerHTML = atrribute.getAttribute('data');
+
+document.querySelector('.outattr').setAttribute('data-test', 'test');
+
+//console.log(typeof atrribute.getAttribute('data'));
+
+//Gas Station
+
+let gas = document.querySelectorAll('.gas');
+
+for (let i = 0; i < gas.length; i++) {
+	gas[i].onclick = function () {
+		if (+document.querySelector('.gallons').value === 0) {
+			document.querySelector('.price-out').innerHTML = "Выберите количество литров!!!";
+			document.querySelector('.price-out').classList.add('red');
+			return;
+		}
+		for (let x = 0; x < gas.length; x++) {
+			gas[x].classList.remove('btn-gas-select');
+		}
+		this.classList.add('btn-gas-select');
+		let gallons = document.querySelector('.gallons').value;
+		let amount = this.getAttribute('data-price');
+		let priceOut = gallons * amount;
+		document.querySelector('.price-out').innerHTML = parseInt(priceOut * 100) / 100;
+		document.querySelector('.price-out').classList.remove('red');
+		document.querySelector('.price-out').classList.add('price-out');
+	}
+}
+
+let createNewElement = document.createElement('div');
+
+createNewElement.innerHTML = "Hello!!!2";
+
+createNewElement.classList.add('red');
+
+document.querySelector('.paste-new-element').appendChild(createNewElement);
+
+createNewElement.onclick = function () {
+	console.log(this.innerHTML);
+}
+
+//console.log(createNewElement);
+
+// Lesson 10
+// Массивы
 
 
 
