@@ -33,3 +33,26 @@
 .paste-new-element {
 	margin-top: 20px;
 }
+
+.featured {
+	border: 1px solid #000;
+	width: 20%;
+	text-align: center;
+	padding: 10px;
+}
+
+.featured ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+.btn-weather {
+	width: 100px;
+	height: 30px;
+	cursor: pointer;
+}
+
+.btn-weather:hover {
+	background-color: aqua;
+	transition: 0.5s;
+}
