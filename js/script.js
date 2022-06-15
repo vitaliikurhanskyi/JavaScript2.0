@@ -560,7 +560,7 @@ addset.add(3);
 addset.add("World");
 addset.add('Hello');
 
-console.log(addset);
+//console.log(addset);
 
 let validInp = '[0-9]';
 
@@ -576,8 +576,489 @@ let validInp = '[0-9]';
 // 	console.log(addset);
 // }
 
+// Цикл for of и сравнение с for, for in
+
+let arr2 = [3, 7, 9];
+
+for (let key in arr2) {
+	//console.log(arr2[key]);
+}
+
+for (let item of arr2) {
+	item += 'ewtawe';
+	//console.log(item);
+}
+
+let pars = document.querySelector('#cycle').children;
+let pars2 = document.getElementsByClassName('par');
+
+//console.log(pars2);
+
+//console.log(pars.length);
+
+for (let key3 of pars2) {
+	//console.log(key3.innerHTML);
+	key3.style.color = "orange";
+}
+
+for (let i = pars.length - 1; i >= 0; i--) {
+	//console.log(pars[i].innerHTML);
+}
+
+// Изучаем map, filter
+
+let mass5 = [4, 5, 12, 'test2', 200, 1, 0, -2, 'test', 'asf'];
+
+let newmass5 = mass5.map(function (item, index) {
+	return item + 1;
+});
+
+//console.log(newmass5);
+
+let massOnlyNum = mass5.filter(function (item) {
+	if (typeof item === "number" && (item % 2) === 0) return true;
+});
+
+//console.log(massOnlyNum);
+
+//Изучаем split, join, forEach
+
+let abc = 'hello, hi, worls';
+
+//console.log(abc.split(','));
+
+let abcd = [1, 2, 3];
+
+//console.log(abcd.join('-'));
+
+let newabcd = [];
+
+abcd.forEach(function (elem, index) {
+	newabcd += elem + 1 + '----';
+});
+
+//console.log(newabcd);
+
+// События мыши
+
+document.querySelector('.block-1').onclick = function (event) {
+	//console.log(event.altKey);
+	console.log(event);
+	console.log('click-1');
+}
+
+// document.querySelector('.block-2').onclick = function (event) {
+// 	console.log('click-2');
+// }
+
+document.querySelector('.block-2').ondblclick = function () {
+	console.log('dblclick');
+}
+
+document.querySelector('.block-2').oncontextmenu = function () {
+	console.log('right button');
+	return false;
+}
+
+//let w = 60;
+
+// document.querySelector('.block-3').onmousemove = function (e) {
+// 	//console.log(e.offsetX + '--' + e.offsetY);
+// 	this.style.width = w + 'px';
+// 	w++;
+// }
+
+document.querySelector('.block-3').onmouseenter = function () {
+	this.style.backgroundColor = 'orange';
+}
+
+document.querySelector('.block-3').onmouseleave = function () {
+	this.style.backgroundColor = '#fff';
+}
+
+document.querySelector('.block-3').onmousedown = function () {
+	this.style.backgroundColor = 'green';
+}
+
+document.querySelector('.block-3').onmouseup = function () {
+	this.style.backgroundColor = 'orange';
+}
+
+// События клавиатуры
+
+// document.querySelector('.input-keys').oninput = function (event) {
+// 	console.log(event);
+// }
+
+// document.querySelector('.input-keys').onkeypress = function (event) {
+// 	console.log(event);
+// 	console.log('charCode: ' + event.charCode);
+// 	console.log('code: ' + event.code);
+// 	if (event.key === 'w') console.log('123123');
+// }
+
+let test = true;
+// document.querySelector('.input-keys').onkeydown = function (event) {
+// 	console.log(event);
+// 	console.log('charCode: ' + event.charCode);
+// 	console.log('code: ' + event.code);
+// 	if (event.key === 'w') console.log('123123');
+// 	if (event.code == 'CapsLock') {
+// 		console.log(test);
+// 		test = !test;
+// 		if (test === false) document.querySelector('.ch-1').checked = true;
+// 		if (test === true) document.querySelector('.ch-1').checked = false;
+
+// 	}
+// }
+
+document.querySelector('.input-keys').onkeyup = function (event) {
+	console.log(event);
+	console.log('charCode: ' + event.charCode);
+	console.log('code: ' + event.code);
+	if (event.key === 'w') console.log('123123');
+	if (event.code == 'CapsLock') {
+		console.log(test);
+		test = !test;
+		if (test === false) document.querySelector('.ch-1').checked = true;
+		if (test === true) document.querySelector('.ch-1').checked = false;
+	}
+}
+
+// КРАТКИЙ ОБЗОР TOUCH СОБЫТИЙ
+
+document.querySelector('.block-touch').addEventListener("touchstart", myTouch);
+
+function myTouch(event) {
+	console.log(event);
+	console.log('touch');
+	document.querySelector(".block-out").innerHTML += "work";
+	document.querySelector(".block-out2").innerHTML += event.touches.length;
+	console.log(event.touches.length);
+}
+
+document.querySelector('.block-touch').addEventListener("touchend", myTouchEnd);
+
+function myTouchEnd() {
+	console.log('touch end');
+}
+
+document.querySelector('.block-touch2').addEventListener("touchmove", myTouchSlide);
+
+function myTouchSlide(event) {
+	console.log(event);
+	console.log('slide');
+}
+
+// Try Catch. Работаем с ошибками.
+
+let bag = 5;
+
+bag = bag * 2;
+
+try {
+	document.querySelector('.bagtest').innerHTML = bag;
+} catch (err) {
+	//console.log(err);
+	document.querySelector('.error').innerText = err;
+} finally {
+	//console.log('программа работает');
+}
+
+//console.log('fff bag');
+
+// Local Storage. Сохраним все!
+
+localStorage.setItem('data', 5);
+
+//console.log(localStorage.getItem('data'));
+
+//const at = [3, 4, 5];
+
+const at = {
+	hello: 4,
+	k: 3,
+	test: 'test'
+};
+
+localStorage.setItem('at', JSON.stringify(at));
+
+let ltest = JSON.parse(localStorage.getItem('at'));
+
+//console.log(ltest);
+
+//console.log(ltest['k']);
+
+//console.log(typeof ltest);
+
+// AJAX - учимся посылать GET, POST запросы
+
+let xhttp = new XMLHttpRequest();
+
+xhttp.onreadystatechange = function () {
+	if (this.readyState == 4 && this.status == 200) {
+		myFunctionXml(this.responseText);
+	}
+}
+
+xhttp.open("GET", "https://jsonplaceholder.typicode.com/posts/1", true);
+xhttp.send();
+
+function myFunctionXml(data) {
+	//console.log(data);
+	let data2 = JSON.parse(data);
+	//console.log(data2.title);
+}
+
+//console.log('testst');
+
+let xhttpPost = new XMLHttpRequest();
+
+xhttpPost.onreadystatechange = function () {
+	if (this.readyState == 4 && this.status == 200) {
+		myFunctionXmlPost(this.responseText);
+	}
+}
+
+xhttpPost.open("POST", "http://getpost.itgid.info/index2.php");
+
+xhttpPost.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); // отсылает данные, как обычная форма
+
+xhttpPost.send("auth=12313adfaef");
+
+function myFunctionXmlPost(data) {
+	//console.log('POST');
+	//console.log(data);
+}
+
+// Fetch на практике
+
+// fetch("http://getpost.itgid.info/index2.php")
+// 	.then(data => {
+// 		// console.log(data);
+// 		// console.log(data.text());
+// 		return data.text();
+// 	})
+// 	.then(data => {
+// 		console.log(data);
+// 		document.querySelector(".fetch-out").innerText = data;
+// 	})
 
 
+
+
+// fetch("http://getpost.itgid.info/index2.php", {
+// 	method: 'POST', // *GET, POST, PUT, DELETE, etc.
+// 	mode: 'cors', // no-cors, *cors, same-origin
+// 	cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+// 	credentials: 'same-origin', // include, *same-origin, omit
+// 	headers: {
+// 		// 'Content-Type': 'application/json'
+// 		'Content-Type': 'application/x-www-form-urlencoded',
+// 	},
+// 	redirect: 'follow', // manual, *follow, error
+// 	referrerPolicy: 'no-referrer', // no-referrer, *client
+// 	body: "auth=12313adfaef"// body data type must match "Content-Type" header
+// })
+// 	.then(data => {
+// 		return data.text();
+// 	})
+// 	.then(response => {
+// 		console.log(response + '2');
+// 	});
+
+fetch("http://getpost.itgid.info/index2.php", {
+	method: 'POST', // *GET, POST, PUT, DELETE, etc.
+	mode: 'cors', // no-cors, *cors, same-origin
+	cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+	credentials: 'same-origin', // include, *same-origin, omit
+	headers: {
+		// 'Content-Type': 'application/json'
+		'Content-Type': 'application/x-www-form-urlencoded',
+	},
+	redirect: 'follow', // manual, *follow, error
+	referrerPolicy: 'no-referrer', // no-referrer, *client
+	body: "auth=12313adfaef"// body data type must match "Content-Type" header
+})
+	.then(data => {
+		return data.text();
+	})
+	.then(response => {
+		//console.log(response);
+	});
+
+// Promise, PromiseAll
+
+let prom = new Promise((resolve, reject) => {
+	fetch("http://getpost.itgid.info/index2.php")
+		.then(data => {
+			resolve(data.text());
+		})
+});
+
+let prom2 = new Promise((resolve, reject) => {
+	fetch("http://getpost.itgid.info/index2.php")
+		.then(data => {
+			resolve(data.text());
+		})
+});
+
+prom.then(data => {
+	//console.log(data);
+});
+
+prom2.then(data => {
+	//console.log(data);
+});
+
+Promise.all([prom, prom2]).then(data => {
+	//console.log(data);
+	//console.log(data[0]);
+	//console.log(data[1]);
+})
+
+
+// ООП Классы. Часть 1
+
+function myAlert(massage, color) {
+	let elem = `<p style="color:${color};">${massage}</p>`;
+	document.querySelector('.error-test').innerHTML += elem;
+}
+
+//myAlert('Error', 'red');
+//myAlert('Error', 'green');
+
+class Alert {
+	constructor(message, color, elem) {
+		this.message = message;
+		this.color = color;
+		this.elem = elem;
+	}
+
+	showAlert() {
+		let out = `<div style="color:${this.color};">${this.message}</div>`;
+		document.querySelector(this.elem).innerHTML = out;
+	}
+
+	showAlert2(color, message, elem) {
+		let out = `<div style="color:${color};">${message}</div>`;
+		document.querySelector(elem).innerHTML = out;
+	}
+
+	test() {
+		console.log('test Alert 1');
+	}
+}
+
+class Alert2 extends Alert {
+	constructor(message, color, elem, backgroundColor) {
+		super(message, color, elem);
+		this.backgroundColor = backgroundColor;
+	}
+
+	showNewAlert() {
+		let out = `<div style="color:${this.color}; background-color: ${this.backgroundColor}; display: inline-block;">${this.message}</div>`;
+		document.querySelector(this.elem).innerHTML = out;
+	}
+
+	alertTest() {
+		console.log(this.color);
+	}
+
+	test() {
+		console.log('test Alert 2');
+	}
+}
+
+let classAlert = new Alert('Class Error', 'green', '.class-out-1');
+
+let classAlert2 = new Alert2('Class Error extents', 'orange', '.class-out-2', 'green');
+
+classAlert.showAlert();
+classAlert.showAlert2('red', 'error', '.class-out-2');
+
+
+//classAlert2.showNewAlert();
+//classAlert2.test();
+
+//classAlert2.alertTest();
+
+//console.log(classAlert);
+//console.log(classAlert2);
+
+//Замыкания
+
+function testClosures() {
+	let a = 0;
+	return function () {
+		a = a + 1;
+		return a;
+	}
+}
+
+let counter = testClosures();
+let counter2 = testClosures();
+//console.log(counter());
+//console.log(counter());
+//console.log(counter());
+//console.log(counter2());
+//console.log(counter2());
+//console.log(counter2());
+
+
+function tes() {
+	let a = 0;
+	return {
+		f1: function () {
+			return 'f1';
+		},
+		f2: function () {
+			return 'f23';
+		},
+	}
+}
+
+let ter = tes();
+
+//console.log(ter.f2());
+
+// Рекурсия
+
+let rek = 1;
+
+function rekFunc() {
+	//console.log(rek);
+	rek++;
+	if (rek == 10) {
+		return;
+	}
+	rekFunc();
+}
+
+rekFunc();
+
+let offset = 0.1;
+let animElem = document.querySelector('.rekanimation');
+function move() {
+	animElem.style.left = offset + 'px';
+	offset = offset + 0.1;
+	if (offset == 100) return;
+	setTimeout(move, "100");
+}
+
+document.querySelector('.move').onclick = move;
+
+
+let attt = [[[[[[1]]]]], [[6]], [[[["str"]]]]];
+
+function rekurs(arr) {
+	for (let item of arr) {
+		if (Array.isArray(item)) rekurs(item);
+		if (typeof (item) === "number") console.log(item);
+		if (typeof (item) === "string") console.log(item);
+	}
+}
+//rekurs(attt);
 
 
 
